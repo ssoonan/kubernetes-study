@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: fleetman-webapp
+spec:
+  selector:
+    app: wep-app
+    release: "0"
+  type: NodePort  # ClusterIP inside the cluster, 클러스터 내부에서만 접근 가능해짐. 그래도 고정적인 IP 
+                  # NodePort : 실제 node에 보여지게할 port다!라는 느낌
+  ports:
+  - name: nginx
+    port: 80
+    nodePort: 30330

@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-app # 이 최상위 name은 고유한 것
+  labels:
+    app: web-app  # value가 중요, key는 중요 X?
+    release: "0"
+spec:
+  containers:
+    - image: richardchesterwood/k8s-fleetman-webapp-angular:release0
+      name: web-app
+
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-app-2 # 이 최상위 name은 고유한 것
+  labels:
+    mylabel: web-app  # value가 중요, key는 중요 X?
+    release: "5"
+spec:
+  containers:
+    - image: richardchesterwood/k8s-fleetman-webapp-angular:release1
+      name: web-app
+  
